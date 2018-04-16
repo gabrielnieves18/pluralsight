@@ -7,6 +7,10 @@
 # production
 /build
 
+# ide
+.idea
+.c9
+
 # misc
 .DS_Store
 .env.local
