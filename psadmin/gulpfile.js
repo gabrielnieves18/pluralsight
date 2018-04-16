@@ -1,5 +1,6 @@
 "use strict";
 
+require("dotenv").config();
 
 const browserify = require("browserify"); // Bundles JS
 const concat = require("gulp-concat"); // Concatenates files
@@ -9,11 +10,11 @@ const gulp = require("gulp");
 const open = require("gulp-open"); // Open a URL in web browser
 const path = require("path");
 const reactify = require("reactify"); // Transpile React JSX to JS
-const source = require("vinyl-source-stream"); // Ue conventional text streams with Gulp
+const source = require("vinyl-source-stream"); // Ue conventional text streams with Gul
 
 const config = {
-  port: process.env.C9_PORT || 8080,
-  devBaseUrl: process.env.C9_HOSTNAME || "0.0.0.0",
+  port: process.env.PORT || 8080,
+  devBaseUrl: process.env.HOSTNAME || "0.0.0.0",
   paths: {
     bootstrap: path.resolve(__dirname, "node_modules/bootstrap/dist/css"),
     dist: path.resolve(__dirname, "dist"),
@@ -27,8 +28,6 @@ config.paths.css = [
   path.resolve(config.paths.bootstrap, "bootstrap.min.css"),
   path.resolve(config.paths.bootstrap, "bootstrap-theme.min.css"),
 ];
-
-console.log("CSS = ", config.paths.css);
 
 // conect process
 // Start a local development server
